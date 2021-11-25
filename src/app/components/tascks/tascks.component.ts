@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TascksComponent implements OnInit {
   tasks?:Task[] = [];
-  task?:Task;
+  //task?:Task;
 
   constructor(private taskService: TaskService) { }
 
@@ -28,6 +28,13 @@ export class TascksComponent implements OnInit {
          )
          );
 
+  }
+
+  toggle(t: Task){
+
+    t.reminder = !t.reminder;
+   // console.log(t.reminder);
+   this.taskService.updateTaskReminder(t).subscribe();
   }
 
 }
