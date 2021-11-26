@@ -38,7 +38,9 @@ export class TascksComponent implements OnInit {
   }
 
   addTask(task: Task){
-    console.log(task);
+    //console.log(task);
+    this.taskService.addTaskService(task).subscribe(
+      (task)=>this.tasks?.push(task));
   }
 
 }
