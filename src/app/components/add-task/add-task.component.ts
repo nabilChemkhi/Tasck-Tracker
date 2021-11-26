@@ -1,3 +1,5 @@
+import { UiService } from './../../services/ui.service';
+import { Subscription } from 'rxjs';
 import { Task } from './../../Task';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -12,8 +14,17 @@ export class AddTaskComponent implements OnInit {
   day: string='';
   reminder: boolean = true;
 
+  showAddTask?: boolean;
+  subscrition?: Subscription;
 
-  constructor() { }
+
+  constructor(private uiService:UiService) {
+    this.subscrition = this.uiService.onToggle().subscribe(
+      (v)=>this.showAddTask=v
+    );
+
+
+  }
 
   ngOnInit(): void {
   }
