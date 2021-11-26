@@ -11,6 +11,15 @@ import { TascksComponent } from './components/tascks/tascks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule ,  Routes} from '@angular/router';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+const appRoutes: Routes=[
+ {path: '' , component : TascksComponent},
+ {path: 'about' , component : AboutComponent}
+]
+
 
 
 @NgModule({
@@ -20,13 +29,16 @@ import { FormsModule } from '@angular/forms';
     ButtonComponent,
     TascksComponent,
     TaskItemComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes, {enableTracing:true}),
   ],
   providers: [],
   bootstrap: [AppComponent]
